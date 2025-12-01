@@ -8,6 +8,8 @@ import ROUTES from "./config/routes.config.ts";
 import Login from "./screens/auth/login.tsx";
 import Home from "./screens/app/home.tsx";
 import SignUp from "./screens/auth/sign-up.tsx";
+import ForgotPassword from "./screens/auth/forgot-password.tsx";
+import ResetPassword from "./screens/auth/reset-password.tsx";
 import { Toaster } from "sonner";
 import { Profile } from "./screens/app/profile.tsx";
 import { ProtectedRoute } from "./components/protected-route.tsx";
@@ -30,6 +32,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path={"/" + ROUTES.AUTH} element={<Auth />}>
           <Route path="login" element={<Login />} />
           <Route path="sign-up" element={<SignUp />} />
+          <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
+          <Route path={ROUTES.RESET_PASSWORD} element={<ResetPassword />} />
         </Route>
       </Routes>
     </BrowserRouter>

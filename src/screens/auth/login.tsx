@@ -73,7 +73,19 @@ const Login = () => {
         >
           <Input.Password placeholder="Senha" prefix={<LockOutlined />} />
         </Form.Item>
-        <span className="mb-4 mt-2">
+        <div className="flex flex-col items-end w-full mb-4">
+          <Button
+            size="small"
+            type="link"
+            onClick={() =>
+              navigate("/" + ROUTES.AUTH + "/" + ROUTES.FORGOT_PASSWORD)
+            }
+            style={{ padding: 0 }}
+          >
+            Esqueceu a senha?
+          </Button>
+        </div>
+        <span className="mb-4">
           Não tem conta?{" "}
           <Button
             size="small"
