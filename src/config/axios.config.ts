@@ -20,18 +20,8 @@ api.interceptors.request.use(
   }
 );
 
-api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    if (error?.response?.data?.mensagem) {
-      toast.error(error.response.data.mensagem);
-    } else {
-      toast.error("Ocorreu um erro inesperado.");
-    }
-    return Promise.reject(error);
-  }
-);
+api.interceptors.response.use((response) => {
+  return response;
+});
 
 export default api;

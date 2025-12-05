@@ -4,12 +4,6 @@ import Header from "../components/Header";
 import useUserStore from "../stores/userStore";
 
 function App() {
-  const { loadUserFromStorage } = useUserStore();
-
-  useEffect(() => {
-    loadUserFromStorage();
-  }, [loadUserFromStorage]);
-
   return (
     <>
       <Header />

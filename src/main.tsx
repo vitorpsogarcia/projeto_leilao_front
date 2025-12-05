@@ -15,13 +15,30 @@ import { Profile } from "./screens/app/profile.tsx";
 import { ProtectedRoute } from "./components/protected-route.tsx";
 import CategoriaForm from "./screens/app/categoria-form.tsx";
 import CategoriaList from "./screens/app/categoria-list.tsx";
+import LeilaoList from "./screens/app/leilao-list.tsx";
+import LeilaoForm from "./screens/app/leilao-form.tsx";
+import LeilaoDetalhes from "./screens/app/leilao-detalhes.tsx";
+import PessoaList from "./screens/app/pessoa-list.tsx";
+import { TipoPerfil } from "./models/user.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.HOME} element={<LeilaoList />} />
+          <Route
+            path={ROUTES.LEILAO_LIST}
+            element={
+              <ProtectedRoute requiredRoles={[TipoPerfil.ADMIN]}>
+                <LeilaoList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={`${ROUTES.LEILAO_LIST}/:id`}
+            element={<LeilaoDetalhes />}
+          />
           <Route
             path={ROUTES.PROFILE}
             element={
@@ -33,8 +50,16 @@ createRoot(document.getElementById("root")!).render(
           <Route
             path={ROUTES.CATEGORIA_LIST}
             element={
-              <ProtectedRoute>
+              <ProtectedRoute requiredRoles={[TipoPerfil.ADMIN]}>
                 <CategoriaList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={ROUTES.PESSOA_LIST}
+            element={
+              <ProtectedRoute requiredRoles={[TipoPerfil.ADMIN]}>
+                <PessoaList />
               </ProtectedRoute>
             }
           />
@@ -51,6 +76,22 @@ createRoot(document.getElementById("root")!).render(
             element={
               <ProtectedRoute>
                 <CategoriaForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={ROUTES.LEILAO_FORM}
+            element={
+              <ProtectedRoute>
+                <LeilaoForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={`${ROUTES.LEILAO_FORM}/:id`}
+            element={
+              <ProtectedRoute>
+                <LeilaoForm />
               </ProtectedRoute>
             }
           />

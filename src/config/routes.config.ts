@@ -8,6 +8,9 @@ const ROUTES = {
   PROFILE: "perfil",
   CATEGORIA_LIST: "categoria",
   CATEGORIA_FORM: "categoria/form",
+  LEILAO_LIST: "leiloes",
+  LEILAO_FORM: "leiloes/form",
+  PESSOA_LIST: "pessoas",
 };
 
 export default ROUTES;
