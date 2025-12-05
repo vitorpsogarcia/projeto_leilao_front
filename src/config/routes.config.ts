@@ -6,6 +6,8 @@ const ROUTES = {
   FORGOT_PASSWORD: "recuperar-senha",
   RESET_PASSWORD: "alterar-senha",
   PROFILE: "perfil",
+  CATEGORIA_LIST: "categoria",
+  CATEGORIA_FORM: "categoria/form",
 };
 
 export default ROUTES;

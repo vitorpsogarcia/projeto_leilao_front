@@ -13,6 +13,8 @@ import ResetPassword from "./screens/auth/reset-password.tsx";
 import { Toaster } from "sonner";
 import { Profile } from "./screens/app/profile.tsx";
 import { ProtectedRoute } from "./components/protected-route.tsx";
+import CategoriaForm from "./screens/app/categoria-form.tsx";
+import CategoriaList from "./screens/app/categoria-list.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -25,6 +27,30 @@ createRoot(document.getElementById("root")!).render(
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={ROUTES.CATEGORIA_LIST}
+            element={
+              <ProtectedRoute>
+                <CategoriaList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={ROUTES.CATEGORIA_FORM}
+            element={
+              <ProtectedRoute>
+                <CategoriaForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path={`${ROUTES.CATEGORIA_FORM}/:id`}
+            element={
+              <ProtectedRoute>
+                <CategoriaForm />
               </ProtectedRoute>
             }
           />

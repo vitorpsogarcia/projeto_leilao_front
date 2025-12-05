@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router";
 import ROUTES from "../config/routes.config";
 import { Avatar, Button } from "antd";
-import { HomeOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  AppstoreOutlined,
+  HomeOutlined,
+  LoginOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import useUserStore from "../stores/userStore";
 import { useCallback } from "react";
 import autenticacaoService from "../services/autenticacao.service";
@@ -34,6 +39,15 @@ const Header = () => {
                 >
                   <HomeOutlined />
                   <span className="hidden sm:block">Home</span>
+                </Button>
+              </li>,
+              <li key="header-categorias">
+                <Button
+                  variant="outlined"
+                  onClick={() => handleNavigation("/" + ROUTES.CATEGORIA_LIST)}
+                >
+                  <AppstoreOutlined />
+                  <span className="hidden sm:block">Categorias</span>
                 </Button>
               </li>,
               <Avatar
